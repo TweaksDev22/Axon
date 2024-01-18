@@ -1,4 +1,5 @@
 #import "Preferences.h"
+#include <roothide.h>
 
 @implementation AXNPrefsListController
 @synthesize respringButton;
@@ -27,7 +28,7 @@
     //
     //     self.iconView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,10,10)];
     //     self.iconView.contentMode = UIViewContentModeScaleAspectFit;
-    //     self.iconView.image = [UIImage imageWithContentsOfFile:@"/Library/PreferenceBundles/AxonPrefs.bundle/icon@2x.png"];
+    //     self.iconView.image = [UIImage imageWithContentsOfFile:jbroot(@"/Library/PreferenceBundles/AxonPrefs.bundle/icon@2x.png")];
     //     self.iconView.translatesAutoresizingMaskIntoConstraints = NO;
     //     self.iconView.alpha = 0.0;
     //     [self.navigationItem.titleView addSubview:self.iconView];
@@ -65,7 +66,7 @@
 //     self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,200,200)];
 //     self.headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,200,200)];
 //     self.headerImageView.contentMode = UIViewContentModeScaleAspectFill;
-//     self.headerImageView.image = [UIImage imageWithContentsOfFile:@"/Library/PreferenceBundles/AxonPrefs.bundle/axon.png"];
+//     self.headerImageView.image = [UIImage imageWithContentsOfFile:jbroot(@"/Library/PreferenceBundles/AxonPrefs.bundle/axon.png")];
 //     self.headerImageView.translatesAutoresizingMaskIntoConstraints = NO;
 //
 //     [self.headerView addSubview:self.headerImageView];
@@ -129,7 +130,7 @@
 
 - (void)respring:(id)sender {
     NSTask *t = [[[NSTask alloc] init] autorelease];
-    [t setLaunchPath:@"/usr/bin/killall"];
+    [t setLaunchPath:jbroot(@"/usr/bin/killall")];
     [t setArguments:[NSArray arrayWithObjects:@"backboardd", nil]];
     [t launch];
 }

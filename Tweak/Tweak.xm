@@ -1,7 +1,8 @@
 #import "Tweak.h"
 #import "AXNManager.h"
+#include <roothide.h>
 
-NSDictionary *prefs;
+extern NSDictionary *prefs;
 BOOL initialized = NO;
 BOOL enabled;
 BOOL vertical;
@@ -710,7 +711,7 @@ static void displayStatusChanged(CFNotificationCenterRef center, void *observer,
 
 
 void loadPrefs() {
-	prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/me.nepeta.axon.plist"];
+	prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:jbroot(@"/var/mobile/Library/Preferences/me.nepeta.axon.plist")];
   enabled = prefs[@"Enabled"] != nil ? [prefs[@"Enabled"] boolValue] : true;
   vertical = prefs[@"Vertical"] != nil ? [prefs[@"Vertical"] boolValue] : false;
   hapticFeedback = prefs[@"HapticFeedback"] != nil ? [prefs[@"HapticFeedback"] boolValue] : true;

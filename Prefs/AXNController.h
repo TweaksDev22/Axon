@@ -1,12 +1,12 @@
 #import <substrate.h>
-
+#include <roothide.h>
 #import <UIKit/UIKit.h>
 #import <Preferences/PSSpecifier.h>
 // #import <Preferences/PSEditableListController.h>
 #import <Preferences/PSListController.h>
 #import <Preferences/PSListItemsController.h>
 
-#define PREFERENCE_IDENTIFIER @"/var/mobile/Library/Preferences/me.nepeta.axon.plist"
+#define PREFERENCE_IDENTIFIER jbroot(@"/var/mobile/Library/Preferences/me.nepeta.axon.plist")
 
 
 @interface PSListController (Private)

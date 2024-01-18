@@ -1,6 +1,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "AXNAppCell.h"
 #import "AXNManager.h"
+#include <roothide.h>
 
 @implementation AXNAppCell
 
@@ -28,7 +29,7 @@ UIView *getBlurView(CGRect frame) {
     _style = -1;
 
     // for some unknown reason AXNView isn't able to set badgesEnabled, so i'm loading it from the preferences
-    prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/me.nepeta.axon.plist"];
+    prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:jbroot(@"/var/mobile/Library/Preferences/me.nepeta.axon.plist")];
     self.badgesEnabled = prefs[@"BadgesEnabled"] != nil ? [prefs[@"BadgesEnabled"] boolValue] : true;
 
     UILongPressGestureRecognizer *recognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showMenu:)];

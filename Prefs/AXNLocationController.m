@@ -1,5 +1,5 @@
-#import <AppList/AppList.h>
 #import "AXNController.h"
+#import "AppList.h"
 NSMutableDictionary *prefs;
 
 @interface AXNLocationController : PSListController {

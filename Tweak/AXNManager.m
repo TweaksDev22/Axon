@@ -1,6 +1,7 @@
 #import "AXNManager.h"
 #import "AXNRequestWrapper.h"
 #import "Tweak.h"
+#include <roothide.h>
 
 @implementation AXNManager
 
@@ -32,7 +33,7 @@
   for(NSArray *value in [self.notificationRequests allValues]) {
     for(AXNRequestWrapper *req in value) [array addObject:req.request];
   }
-  [[array description] writeToFile:@"/var/mobile/Documents/AxonDebug.txt" atomically:false encoding:NSUTF8StringEncoding error:nil];
+  [[array description] writeToFile:jbroot(@"/var/mobile/Documents/AxonDebug.txt") atomically:false encoding:NSUTF8StringEncoding error:nil];
 }
 
 -(void)getRidOfWaste {

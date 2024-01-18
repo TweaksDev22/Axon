@@ -1,3 +1,6 @@
+ARCHS = arm64 arm64e
+
+THEOS_PACKAGE_SCHEME=roothide
 
 include $(THEOS)/makefiles/common.mk
 
